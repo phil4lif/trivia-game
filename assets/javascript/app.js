@@ -21,19 +21,24 @@ function decrement() {
 var questions = [
     {
         question: "What kind of bear is best?",
-        correctAnswer: "There are basically two schools of thought",
-        wrongAnswers: ["Black Bears", "Grizzly Bears", "Polar Bears"]
+        correctAnswer: 0,
+        Answers: ["There are basically two schools of thought", "Black Bears", "Grizzly Bears", "Polar Bears"]
     }, {
         question: "What does Dwight grow on his farm?",
-        correctAnswer: "Beets",
-        wrongAnswers: ["Radishes", "Corn", "Pecans"]
+        correctAnswer: 0,
+        Answers: ["Beets", "Radishes", "Corn", "Pecans"]
     }, {
         question: "What is the title of the action film that Michael directs and stars in?",
-        correctAnswer: "Threat Level Midnight",
-        wrongAnswers: ["The Scranton Strangler", "Scranton, The Electric City", "An American Workplace"]
+        correctAnswer: 1,
+        Answers: ["The Scranton Strangler", "Threat Level Midnight", "Scranton, The Electric City", "An American Workplace"]
     }
 ]
 
-
+//write a function to display the current question as well as the correct and incorrect answers
+function newQuestion(){
+    
+    $("#questiondiv").text(questions[0].question)
+}
 //writes functionality for the start button, to begin the game
 $("#startbutton").on("click", run);
+$("#startbutton").on("click", newQuestion);
