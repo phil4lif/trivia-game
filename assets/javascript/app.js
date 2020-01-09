@@ -22,6 +22,7 @@ function decrement() {
     if (timer === 0) {
         $("#result").text("Time's Up!")
         wrongCounter++;
+        $("#wrongcounter").text(wrongCounter);
     }
 }
 function wrong(){
@@ -56,11 +57,10 @@ var questions = [
 function newQuestion(){
     timer = 30;
     $("#questiondiv").text(questions[0].question);
-    $(this).attr("data");
-    $("answer-one").text(questions[0].answers[0]);
-    $("answer-two").text(questions[0].answers[1]);
-    $("answer-three").text(questions[0].answers[2]);
-    $("answer-four").text(questions[0].answers[3]);
+    $("#answer-one").text(questions[0].answers[0]);
+    $("#answer-two").text(questions[0].answers[1]);
+    $("#answer-three").text(questions[0].answers[2]);
+    $("#answer-four").text(questions[0].answers[3]);
 
     // $(".answerdiv").text(questions[0].answers)
 }

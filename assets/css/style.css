@@ -5,3 +5,6 @@
 body {
     background-image: url("../images/background.jpg");
 }
+.answerdiv{
+    height: 20px;
+}
