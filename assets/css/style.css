@@ -18,7 +18,14 @@ header{
     color: rgb(42, 54, 63);
     border-bottom: 2px solid grey;
 }
+#startbutton{
+    background-color: rgb(14, 127, 212);
+    border: 2px solid black;
+    width: 20%;
+    margin-left: 40%;
+}
 .content {
+    padding: 10px;
     text-align: center;
     font-size:32px;
     color: rgb(42, 54, 63);
@@ -30,6 +37,12 @@ header{
     margin-left: 175px;
     margin-right: 175px;
 }
+#qna{
+    margin-bottom:50px;
+}
+#questiondiv{
+
+}
 .timer{
     height: 60px;
     width: 60px;
@@ -38,15 +51,17 @@ header{
     right: 25px;
 }
 .answerdiv{
+    margin: auto;
     margin-top: 3px;
     margin-bottom: 3px;
+    width: auto;   
 }
 #scoreboard{
-    width: 300px;
+    width: 50%;
     height: 200px;
     color: goldenrod;
     background-color: black;
-    position: fixed;
-    top: 150px;
-    right: 50px;
+    position: absolute;
+    top: 400px;
+    margin-left: 25%;
 }
