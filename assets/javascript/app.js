@@ -50,6 +50,22 @@ var questions = [
         question: "What is the title of the action film that Michael directs and stars in?",
         correctAnswer: 1,
         answers: ["The Scranton Strangler", "Threat Level Midnight", "Scranton, The Electric City", "An American Workplace"]
+    },{
+    question: "Who is Pam engaged too at the beginning of the series?",
+    correctAnswer: 2,
+    answers: ["Jim", "Darryl", "Roy", "Toby"]
+    },{
+        question: "Besides Jan, who does Michael often write about in his diary?",
+        correctAnswer: 1,
+        answers: ["Pam", "Ryan", "Kelly", "Karen"]
+    },{
+        question: "What does Dunder Mifflin sell?",
+        correctAnswer: 2,
+        answers: ["Mittens", "Mufflers", "Paper", "Muffins"],
+    },{
+        question: "What is the name of the Award show/party that Michael hosts for his staff?",
+        correctAnswer: 3,
+        answers: ["The Toby Awards", "The Grannies", "The Oscars Martinez", "The Dundees"]
     }
 ]
 
