@@ -2,7 +2,7 @@
 var correctCounter = 0;
 var wrongCounter = 0;
 var questionNumber = 2;
-
+var correctAnswer ;
 
 
 //starts a 30 second timer for each new question
@@ -84,9 +84,14 @@ function newQuestion(questionNumber) {
 //write a click function for the answers 
 $(".answerdiv").on("click", function () {
     //if the answer is correct the correct counter will go up
+    console.log(this);
     var answer = $(this).attr("data-answer")
-    if (answer === questions[0].answers[0]) {
+    console.log(answer);
+    console.log(correctAnswer);
+    if (answer == questions[questionNumber].correctAnswer) {
+        console.log("correct")
         correctCounter++;
+        $("#correctcounter").text(correctCounter);
         questionNumber++
         newQuestion(questionNumber);
     }
