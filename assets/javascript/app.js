@@ -15,6 +15,8 @@ function run() {
 }
 //  The decrement function.
 function decrement() {
+    //write an if so that the timer does not go negative
+    if(timer>0){
     //  Decrease timer by one.
     timer--;
     //  Show the number in the #timer tag.
@@ -22,8 +24,11 @@ function decrement() {
     if (timer === 0) {
         $("#result").text("Time's Up!")
         wrongCounter++;
-        $("#wrongcounter").text(wrongCounter);
+        $("#wrongcounter").append(wrongCounter);
+        questionNumber++
+        newQuestion(questionNumber);
     }
+}
 }
 function wrong() {
     wrongCounter++;
@@ -83,16 +88,34 @@ function newQuestion(questionNumber) {
 
 //write a click function for the answers 
 $(".answerdiv").on("click", function () {
-    //if the answer is correct the correct counter will go up
-    console.log(this);
+    
+    // console.log(this);
     var answer = $(this).attr("data-answer")
-    console.log(answer);
-    console.log(correctAnswer);
+    // console.log(answer);
+    //if the answer is correct
     if (answer == questions[questionNumber].correctAnswer) {
-        console.log("correct")
+        //correct will be displayed
+        $("#result").text("Correct")
+        //correctcounter is incremented
         correctCounter++;
-        $("#correctcounter").text(correctCounter);
+        //and the correctcounter is displayed
+        $("#correctcounter").append(correctCounter);
+        //the question number is incremented
         questionNumber++
+        //the new question function is invoked with the new number passed in
+        newQuestion(questionNumber);
+    //otherwise the answer is incorrect
+    }else{
+        // console.log("incorrect")
+        //incorrect is displayed
+        $("#result").text("Sorry, Incorrect")
+        //the wrong counter variable is incremented
+        wrongCounter++
+        //the wrong counter is displayed on the page
+        $("#wrongcounter").append(wrongCounter);
+        //the question number is incremented
+        questionNumber++
+        //and the newquestion function is invoked with the new number passed in
         newQuestion(questionNumber);
     }
 });
