@@ -21,6 +21,7 @@ function decrement() {
     $("#timer").html("<h3>" + timer + "</h3>");
     if (timer === 0) {
         $("#result").text("Time's Up!")
+        wrongCounter++;
     }
 }
 function wrong(){
@@ -54,9 +55,27 @@ var questions = [
 //write a function to display the current question as well as the correct and incorrect answers
 function newQuestion(){
     timer = 30;
-    $("#questiondiv").text(questions[0].question)
-    $(".answerdiv").text(questions[0].answers)
+    $("#questiondiv").text(questions[0].question);
+    $(this).attr("data");
+    $("answer-one").text(questions[0].answers[0]);
+    $("answer-two").text(questions[0].answers[1]);
+    $("answer-three").text(questions[0].answers[2]);
+    $("answer-four").text(questions[0].answers[3]);
+
+    // $(".answerdiv").text(questions[0].answers)
 }
+
+//write a click function for the answers 
+$(".answerdiv").on("click", function (){
+//if the answer is correct the correct counter will go up
+var answer = $(this).attr("data")
+if (answer === questions.question[i].answers[correctAnswer]){
+    correctCounter++;
+    newQuestion();
+}
+});
+
+//if i is incorrect the wrongcounter will increase
 //writes functionality for the start button, to begin the game
 $("#startbutton").on("click", run);
 $("#startbutton").on("click", newQuestion);
