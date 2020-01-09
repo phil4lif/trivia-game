@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -12,11 +13,11 @@
 <body>
  <header>Dunder Mifflin Trivia</header>
 
- <container class="content">
+ <section class="content">
 <div id="startbutton">Start</div>
-<div id="timer"></div>
+<div id="timer">30</div>
 
-<div id="result"></div>
+
 
 <div id="questiondiv"></div>
 <div id="answerholder">
@@ -25,14 +26,16 @@
 <div data-answer="2" id="answer-three" class="answerdiv"></div>
 <div data-answer="3" id="answer-four" class="answerdiv"></div>
 </div>
+<div id="scoreboard">Scoreboard
+<div id="result">__________</div>
 <div id="wrongcounter">Wrong Answers:</div>
 <div id="correctcounter">Correct Answers:</div>
+</div>
 
 
 
 
-
-</container>
+</section>
     <script src="assets/javascript/app.js"></script>
 </body>
 </html>

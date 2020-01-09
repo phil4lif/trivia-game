@@ -1,7 +1,7 @@
 //declare some variables for scorekeeping
 var correctCounter = 0;
 var wrongCounter = 0;
-var questionNumber = 2;
+var questionNumber = 0;
 var correctAnswer ;
 
 
@@ -24,23 +24,12 @@ function decrement() {
     if (timer === 0) {
         $("#result").text("Time's Up!")
         wrongCounter++;
-        $("#wrongcounter").append(wrongCounter);
+        $("#wrongcounter").text("Wrong Answers: " + wrongCounter);
         questionNumber++
         newQuestion(questionNumber);
     }
 }
 }
-function wrong() {
-    wrongCounter++;
-    $("#result").text("Incorrect")
-    $("#wrongcounter").text(wrongCounter);
-}
-function correct() {
-    correctCounter++;
-    $("#result").text("Correct!")
-    $("#correctcounter").text(correctCounter);
-}
-
 //create an array of objects each object will be a question and its key value pairs will be incorrect answers with one correct answer
 var questions = [
     {
@@ -99,7 +88,7 @@ $(".answerdiv").on("click", function () {
         //correctcounter is incremented
         correctCounter++;
         //and the correctcounter is displayed
-        $("#correctcounter").append(correctCounter);
+        $("#correctcounter").text("Correct Answers: " + correctCounter);
         //the question number is incremented
         questionNumber++
         //the new question function is invoked with the new number passed in
@@ -112,7 +101,7 @@ $(".answerdiv").on("click", function () {
         //the wrong counter variable is incremented
         wrongCounter++
         //the wrong counter is displayed on the page
-        $("#wrongcounter").append(wrongCounter);
+        $("#wrongcounter").text("Wrong Answers: " + wrongCounter);
         //the question number is incremented
         questionNumber++
         //and the newquestion function is invoked with the new number passed in
