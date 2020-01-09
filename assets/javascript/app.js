@@ -1,7 +1,7 @@
 //declare some variables for scorekeeping
 var correctCounter = 0;
 var wrongCounter = 0;
-
+var questionNumber = 2;
 
 
 
@@ -25,12 +25,12 @@ function decrement() {
         $("#wrongcounter").text(wrongCounter);
     }
 }
-function wrong(){
+function wrong() {
     wrongCounter++;
     $("#result").text("Incorrect")
     $("#wrongcounter").text(wrongCounter);
 }
-function correct(){
+function correct() {
     correctCounter++;
     $("#result").text("Correct!")
     $("#correctcounter").text(correctCounter);
@@ -50,19 +50,19 @@ var questions = [
         question: "What is the title of the action film that Michael directs and stars in?",
         correctAnswer: 1,
         answers: ["The Scranton Strangler", "Threat Level Midnight", "Scranton, The Electric City", "An American Workplace"]
-    },{
-    question: "Who is Pam engaged too at the beginning of the series?",
-    correctAnswer: 2,
-    answers: ["Jim", "Darryl", "Roy", "Toby"]
-    },{
+    }, {
+        question: "Who is Pam engaged too at the beginning of the series?",
+        correctAnswer: 2,
+        answers: ["Jim", "Darryl", "Roy", "Toby"]
+    }, {
         question: "Besides Jan, who does Michael often write about in his diary?",
         correctAnswer: 1,
         answers: ["Pam", "Ryan", "Kelly", "Karen"]
-    },{
+    }, {
         question: "What does Dunder Mifflin sell?",
         correctAnswer: 2,
         answers: ["Mittens", "Mufflers", "Paper", "Muffins"],
-    },{
+    }, {
         question: "What is the name of the Award show/party that Michael hosts for his staff?",
         correctAnswer: 3,
         answers: ["The Toby Awards", "The Grannies", "The Oscars Martinez", "The Dundees"]
@@ -70,28 +70,29 @@ var questions = [
 ]
 
 //write a function to display the current question as well as the correct and incorrect answers
-function newQuestion(){
+function newQuestion(questionNumber) {
     timer = 30;
-    $("#questiondiv").text(questions[0].question);
-    $("#answer-one").text(questions[0].answers[0]);
-    $("#answer-two").text(questions[0].answers[1]);
-    $("#answer-three").text(questions[0].answers[2]);
-    $("#answer-four").text(questions[0].answers[3]);
+    $("#questiondiv").text(questions[questionNumber].question);
+    $("#answer-one").text(questions[questionNumber].answers[0]);
+    $("#answer-two").text(questions[questionNumber].answers[1]);
+    $("#answer-three").text(questions[questionNumber].answers[2]);
+    $("#answer-four").text(questions[questionNumber].answers[3]);
 
     // $(".answerdiv").text(questions[0].answers)
 }
 
 //write a click function for the answers 
-$(".answerdiv").on("click", function (){
-//if the answer is correct the correct counter will go up
-var answer = $(this).attr("data")
-if (answer === questions.question[i].answers[correctAnswer]){
-    correctCounter++;
-    newQuestion();
-}
+$(".answerdiv").on("click", function () {
+    //if the answer is correct the correct counter will go up
+    var answer = $(this).attr("data-answer")
+    if (answer === questions[0].answers[0]) {
+        correctCounter++;
+        questionNumber++
+        newQuestion(questionNumber);
+    }
 });
 
 //if i is incorrect the wrongcounter will increase
 //writes functionality for the start button, to begin the game
 $("#startbutton").on("click", run);
-$("#startbutton").on("click", newQuestion);
+$("#startbutton").on("click", newQuestion(questionNumber));
