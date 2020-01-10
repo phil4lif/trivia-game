@@ -33,11 +33,11 @@ function decrement() {
         $("#timer").html("<h3>Time Remaining: " + timer + "</h3>");
         if (timer === 0) {
             $(".game")
-            $("#result").text("Time's Up!")
+            
             wrongCounter++;
             $("#wrongcounter").text("Wrong Answers: " + wrongCounter);
             questionNumber++
-            console.log(questionNumber, " ", (questions.length-1))
+            console.log(questionNumber, " ", questions.length)
             newQuestion(questionNumber);
         }
     }
@@ -79,7 +79,7 @@ var questions = [
 //write a function to display the current question as well as the correct and incorrect answers
 function newQuestion(questionNumber) {
     timer = 30;
-    if(questionNumber<(questions.length-1)){
+    if(questionNumber<questions.length){
     $("#questiondiv").text(questions[questionNumber].question);
     $("#answer-one").text(questions[questionNumber].answers[0]);
     $("#answer-two").text(questions[questionNumber].answers[1]);
@@ -91,8 +91,8 @@ function newQuestion(questionNumber) {
 
 //write a click function for the answers 
 $(".answerdiv").on("click", function () {
-    console.log(questionNumber)
-    console.log(this);
+    // console.log(questionNumber)
+    // console.log(this);
     var answer = $(this).attr("data-answer")
     // console.log(answer);
     //check if the question number is valid or if the game should be over
@@ -100,45 +100,45 @@ $(".answerdiv").on("click", function () {
     //if the answer is correct
     if (answer == questions[questionNumber].correctAnswer) {
         //correct will be displayed
-        $("#solution").show()
+        $("#correctsolution").show()
         $(".game").hide()
         questionNumber++;
           //correctcounter is incremented
           correctCounter++;
         setTimeout(function () {
-            $("#solution").hide()
+            $("#correctsolution").hide()
             $(".game").show()
             timer = 30;
-            if(questionNumber===questions.length-1){
+            if(questionNumber===questions.length){
                 endGame();
             }
-        }, 200)
+        }, 2000)
       
         //and the correctcounter is displayed
         $("#correctcounter").text("Correct Answers: " + correctCounter);
         //the question number is incremented
      
         //the new question function is invoked with the new number passed in
-        console.log(questionNumber, " ", (questions.length-1))
+        console.log(questionNumber, " ", questions.length)
 
-        if (questionNumber < (questions.length-1)) {
+        if (questionNumber < questions.length) {
             newQuestion(questionNumber);
         } else {
             endGame();
         }
         //otherwise the answer is incorrect
     } else {
-        $("#solution").show()
+        $("#incorrectsolution").show()
         $(".game").hide()
         questionNumber++;
         setTimeout(function () {
-            $("#solution").hide()
+            $("#incorrectsolution").hide()
             $(".game").show()
             timer = 30;
-            if(questionNumber===questions.length-1){
+            if(questionNumber===questions.length){
                 endGame();
             }
-        }, 200)
+        }, 2000)
         // console.log("incorrect")
         //incorrect is displayed
         // $("#result").text("Sorry, Incorrect")
@@ -149,15 +149,17 @@ $(".answerdiv").on("click", function () {
         //the question number is incremented
        
         //and the newquestion function is invoked with the new number passed in
-        console.log(questionNumber, " ", (questions.length-1))
-        if (questionNumber < (questions.length-1)) {
+        console.log(questionNumber, " ", questions.length)
+        if (questionNumber < questions.length) {
             newQuestion(questionNumber);
         } else {
             endGame()
         }
     }
 });
-$("#solution").hide()
+//this displays and hides the appropriate things at the start of the game
+$("#correctsolution").hide()
+$("#incorrectsolution").hide()
 $("#scoreboard").hide()
 $(".game").hide()
 $("#starbutton").show()
