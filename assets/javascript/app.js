@@ -6,7 +6,7 @@ var correctAnswer;
 
 //write a function for the end of the game, that is for when the user has answered the last question. This function will be invoked once the question number exceeds the length of the questions array
 function endGame() {
-    console.log("gameover")
+    // console.log("gameover")
     $(".game").hide();
     $("#scoreboard").show();
     timer = 30;
@@ -72,6 +72,14 @@ var questions = [
         question: "What is the name of the Award show/party that Michael hosts for his staff?",
         correctAnswer: 3,
         answers: ["The Toby Awards", "The Grannies", "The Oscars Martinez", "The Dundees"]
+    },{
+        question: "When Dwight starts playing Second Life, what is his character's profession?",
+        correctAnswer: 1,
+        answers: ["Sportswriter", "Paper Salesmen", "Guitarist", "Beet Farmer"]
+    },{
+        question: "How many people a year get their arms cut off in a baler?",
+        correctAnswer: 0,
+        answers: ["10", "Over 50", "3", "100"]
     }
 ]
 
