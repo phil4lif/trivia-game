@@ -99,6 +99,8 @@ function newQuestion(questionNumber) {
 
 //write a click function for the answers 
 $(".answerdiv").on("click", function () {
+    // console.log(questions[questionNumber].answers[correctAnswer]);
+
     // console.log(questionNumber)
     // console.log(this);
     var answer = $(this).attr("data-answer")
@@ -136,6 +138,8 @@ $(".answerdiv").on("click", function () {
         }
         //otherwise the answer is incorrect
     } else {
+        console.log(questions[questionNumber].answers[correctAnswer]);
+        $("#incorrectsolution").html("That is incorrect, the correct answer is " + questions[questionNumber].answers[correctAnswer]);
         $("#incorrectsolution").show()
         $(".game").hide()
         questionNumber++;
